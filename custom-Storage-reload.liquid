@@ -1,0 +1,52 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+jQuery(document).ready(function($) {
+
+    const selectstorage = document.getElementById("Option-Storage");
+
+    selectstorage.addEventListener("change", function reloadfragment {
+        jQuery( "#storage-details" ).load(window.location.href + " #storage-details" );
+        jQuery( "#storage-image" ).load(window.location.href + " #storage-image" );
+    });
+});
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+const selectmemory = document.getElementById("Option-Memory");
+const selectstorage = document.getElementById("Option-Storage");
+const selectgraphics = document.getElementById("Option-Graphics");
+
+selectmemory.addEventListener('click', function reloadfragment() {
+    jQuery( "#memory-image" ).load(location + " #memory-image");
+    jQuery( "#memory-details" ).load(location + " #memory-details");
+});
+
+selectstorage.addEventListener('click', function reloadfragment() {
+    jQuery( "#storage-image" ).load(location + " #storage-image");
+    jQuery( "#storage-details" ).load(location + " #storage-details");
+});
+
+selectgraphics.addEventListener('click', function reloadfragment() {
+    jQuery( "#graphics-image" ).load(location + " #graphics-image");
+    jQuery( "#graphics-details" ).load(location + " #graphics-details");
+});
+
+selectstorage.onchange = function() {
+    jQuery( "#storage-image" ).load(location + " #storage-image");
+    jQuery( "#storage-details" ).load(location + " #storage-details");
+};
+
+selectmemory.onchange = function() {
+    jQuery( "#memory-image" ).load(location + " #memory-image");
+    jQuery( "#memory-details" ).load(location + " #memory-details");
+};
+
+selectgraphics.onchange = function() {
+    jQuery( "#graphics-image" ).load(location + " #graphics-image");
+    jQuery( "#graphics-details" ).load(location + " #graphics-details");
+};
+
+</script>

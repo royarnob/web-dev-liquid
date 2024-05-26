@@ -1,0 +1,12 @@
+<script type="text/javascript">
+(function(history){
+    const pushState = history.pushState;
+    history.pushState = function(state) {
+        if (typeof history.onpushstate == "function") {
+            history.onpushstate({state: state});
+        }
+        // Call your custom function here
+        return pushState.apply(history, arguments);
+    }
+})(window.history);
+</script>

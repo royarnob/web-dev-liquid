@@ -1,0 +1,32 @@
+<div id="reload_hero_image">
+    {% for variant in product.variants %}
+    {% if product.selected_or_first_available_variant.id == variant.id %}
+    <img src="{{ variant.metafields.gpu.image.value | img_url: '275x' }}"/>
+    {% endif %}
+    {% endfor %}
+  </div>
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  jQuery(document).ready(function($) {
+      // Get the initial URL
+      var current_url = window.location.href;
+      // Check for URL changes
+      setInterval(function() {
+          var new_url = window.location.href;
+          if (new_url != current_url) {
+              // URL has changed, reload the page fragment, and reset the initial URL
+              jQuery( "#memory_page_image" ).load(window.location.href + " #memory_page_image" );
+              jQuery( "#storage_page_image" ).load(window.location.href + " #storage_page_image" );
+              jQuery( "#reload_hero_image" ).load(window.location.href + " #reload_hero_image" );
+              var current_url = window.location.href;
+          }
+      }, 1500);
+  });
+  </script>
+
+
+
+
+
+  

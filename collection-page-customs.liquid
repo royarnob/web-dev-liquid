@@ -1,0 +1,25 @@
+<div style="overflow: hidden; width: 100%;">
+    <center>
+    <video id="XboxGamePassPC" controls controlslist="nofullscreen nodownload" autoplay loop muted playsinline style="width: 50%; height: auto; object-fit: cover;">
+        <source src="https://cdn.shopify.com/videos/c/o/v/9e4edef9634e486a9080c29eaf9d963d.mp4" type="video/mp4">
+    </video>
+    </center>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+const selectmemory = document.getElementById("Option-Memory");
+const selectstorage = document.getElementById("Option-Storage");
+const selectgraphics = document.getElementById("Option-Graphics");
+
+selectmemory.addEventListener('click', function reloadfragment() {
+    jQuery( "#memory-image" ).load(location + " #memory-image");
+    jQuery( "#memory-details" ).load(location + " #memory-details");
+});
+
+selectstorage.addEventListener('click', function reloadfragment() {
+    jQuery( "#storage-image" ).load(location + " #storage-image");
+    jQuery( "#storage-details" ).load(location + " #storage-details");
+});
+
+</script>
