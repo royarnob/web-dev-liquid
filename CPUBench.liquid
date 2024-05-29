@@ -1,0 +1,241 @@
+<center>
+<div style= "text-align: left; padding-left:18%; padding-right:10%">
+  <h1><strong>Compare Your CPU Options</strong></h1>
+</div>
+
+<div class="flex-container">
+  <div id="CPUCBSingle"></div>
+  <div id="CPUCBMulti"></div>
+</div>
+
+</center>
+
+  
+<div style= "text-align: right; font-size: 0.8em; padding-left:10%; padding-right:10%">
+    <p><sup>3,4 </sup>Cinebench R23 Average Benchmark Results as of May 25, 2024</p>
+</div>
+  
+  
+<script>
+      const FP32Perf2 = [52.22, 29.15, 15.11, 35.17, 21.75, 12.29, 12.15, 10.29];
+      const GPU2 = ["NVIDIA RTX 4080 Super", "NVIDIA RTX 4070", "NVIDIA RTX 4060", "AMD Radeon RX 7700 XT", "AMD Radeon RX 7600","Intel Arc A580", "Xbox Series X", "Playstation 5"];
+      
+      const data = [{
+        x:FP32Perf2,
+        y:GPU2,
+        type:"bar",
+        orientation:"h",
+        marker: {color:["#76b900", "#76b900", "#76b900", "#ED1C24", "#ED1C24", "#0068B5", "#808080", "#808080"],
+          opacity: 1,
+        },
+        texttemplate : '<b>%{x}</b>',
+        textfont: {
+          color: "#FFFFFF",
+          family: "Futura",
+        },
+        width: 0.75
+      }];
+      
+      const layout = {
+    
+      xaxis: {
+        tickfont:{
+          family: 'Futura',
+          size: 10,
+          color: '#FFFFFF'
+        },
+        gridcolor: "#000000",
+        side: 'right'
+      },
+    
+      yaxis: {
+        tickfont:{
+          family: 'Futura',
+          size: 14,
+          color: '#FFFFFF'
+        },
+        ticksuffix: "  ",
+        automargin: true,
+      },
+    
+      annotations: [
+        {
+          xref: 'paper',
+          yref: 'paper',
+          x: 0,
+          xanchor: 'left',
+          y: 1,
+          yanchor: 'bottom',
+          text: '<b>FP32 Single-Precision Performance</b>, TFLOPS<sup>1</sup>',
+          font: {
+            family: 'Futura',
+            color: '#FFFFFF',
+            size: 20
+            },
+          showarrow: false
+        }
+      ],
+        paper_bgcolor: "rgba(0,0,0,0)",
+        plot_bgcolor: "rgba(0,0,0,0)",
+        barcornerradius: 100,
+        autosize: true,
+        margin: {
+          b:25,
+          l:200,
+          pad:0,
+          r:0,
+          t:100
+        }
+      };
+    
+      const config = {
+        responsive: true,
+        scrollZoom: false,
+        displayModeBar: false,
+        staticPlot:true
+      };
+  
+    var graphDiv2 = document.getElementById('CPUCompare');
+    const Passmark = [2241, 1997, 1658, 2072, 1868, 1968, 1695];
+    const CPU = ["Intel<br>Core i9<br>13900KF", "Intel<br>Core i9<br>12900KF", "Intel<br>Core i3<br>12100F", "AMD<br>Ryzen 9<br>7950X", "AMD<br>Ryzen 5<br>7600", "Apple<br>M3 Max", "Apple<br>M2 Ultra"];
+      
+    var data2 = [{
+      x: CPU,
+      y: Passmark,
+      type:"bar",
+      marker: {color:["#0068B5", "#0068B5", "#0068B5", "#ED1C24", "#ED1C24", "#808080", "#808080"],
+          opacity: 1,
+      },
+      texttemplate : '%{y:,}',
+      textfont: {
+        color: "#FFFFFF",
+        family: "Futura",
+      },
+      width: 0.5,
+      textposition: "outside"
+    }];
+    
+    var layout2 = {
+    xaxis: {
+      tickfont:{
+        family: 'Futura',
+        size: 14,
+        color: '#FFFFFF'
+      },
+      gridcolor: "#000000",
+      autotickangles: 0,
+      tickangle: 0,
+    },
+  
+    yaxis: {
+      tickfont:{
+        family: 'Futura',
+        size: 10,
+        color: '#FFFFFF'
+      },
+      gridcolor: "#000000",
+    },
+  
+    annotations: [
+      {
+        xref: 'paper',
+        yref: 'paper',
+        x: 0,
+        xanchor: 'left',
+        y: 1,
+        yanchor: 'bottom',
+        text: '<b>Cinebench R23 Single-Core</b><sup>3</sup>',
+        font: {
+          family: 'Futura',
+          color: '#FFFFFF',
+          size: 20
+          },
+        showarrow: false
+      }
+    ],
+  
+      paper_bgcolor: "rgba(0,0,0,0)",
+      plot_bgcolor: "rgba(0,0,0,0)",
+      barcornerradius: 0,
+      autosize: true,
+      margin: {
+          b:70,
+          l:25,
+          pad:0,
+          r:0,
+          t:50
+        }
+    };
+  
+    const CBMulti = [39652, 27472, 8443, 38657, 14540, 24068, 28570];
+      
+    var dataCBMulti = [{
+      x: CPU,
+      y: CBMulti,
+      type:"bar",
+      marker: {color:["#0068B5", "#0068B5", "#0068B5", "#ED1C24", "#ED1C24", "#808080", "#808080"],
+          opacity: 1,
+      },
+      texttemplate : '%{y:,}',
+      textfont: {
+        color: "#FFFFFF",
+        family: "Futura",
+      },
+      width: 0.5,
+      textposition: "outside"
+    }];
+    
+    var layoutCBMulti = {
+    xaxis: {
+      tickfont:{
+        family: 'Futura',
+        size: 14,
+        color: '#FFFFFF'
+      },
+      gridcolor: "#000000",
+      autotickangles: 0,
+      tickangle: 0
+    },
+    yaxis: {
+      tickfont:{
+        family: 'Futura',
+        size: 10,
+        color: '#FFFFFF'
+      },
+      gridcolor: "#000000",
+    },
+    annotations: [
+      {
+        xref: 'paper',
+        yref: 'paper',
+        x: 0,
+        xanchor: 'left',
+        y: 1,
+        yanchor: 'bottom',
+        text: '<b>Cinebench R23 Multi-Core</b><sup>4</sup>',
+        font: {
+          family: 'Futura',
+          color: '#FFFFFF',
+          size: 20
+          },
+        showarrow: false
+      }
+    ],
+      paper_bgcolor: "rgba(0,0,0,0)",
+      plot_bgcolor: "rgba(0,0,0,0)",
+      barcornerradius: 0,
+      autosize: true,
+      margin: {
+          b:70,
+          l:25,
+          pad:0,
+          r:0,
+          t:50
+        }
+    };
+  
+    Plotly.newPlot("GPUCompare", data, layout, config);
+    Plotly.newPlot("CPUCBSingle", data2, layout2, config);
+    Plotly.newPlot("CPUCBMulti", dataCBMulti, layoutCBMulti, config);
+  
+</script>
